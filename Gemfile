@@ -15,15 +15,11 @@ group :development, :test do
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-rspec'
-  gem 'shoulda-matchers', require: false
-  gem 'stackprof'
 end
 
 group :development do
-  gem 'pry-rails'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'web-console'
 end
 
 group :test do
