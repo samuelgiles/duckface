@@ -46,11 +46,11 @@ module Duckface
       end
 
       def method_implementation(method_name)
-        @method_implementation ||= MethodImplementation.new(@implementation_class, method_name)
+        MethodImplementation.new(@implementation_class, method_name)
       end
 
       def interface_implementation(method_name)
-        @interface_implementation ||= MethodImplementation.new(@interface_class, method_name)
+        MethodImplementation.new(@interface_class, method_name)
       end
     end
   end
