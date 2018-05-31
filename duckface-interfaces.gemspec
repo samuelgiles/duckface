@@ -6,14 +6,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'duckface/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'duckface'
+  spec.name          = 'duckface-interfaces'
   spec.version       = Duckface::VERSION
   spec.authors       = ['Bellroy Tech Team']
   spec.email         = ['tech@bellroy.com']
 
   spec.summary       = 'Duckface'
   spec.description   = 'Duck typing + Interfaces'
-  spec.homepage      = 'https://bellroy.com'
+  spec.homepage      = 'https://github.com/samuelgiles/duckface'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
