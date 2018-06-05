@@ -4,6 +4,18 @@
 
 A collection of tools to enforce duck typing based interfaces in Ruby.
 
+## Install
+
+From gem:
+```
+gem 'duckface-interfaces', require: 'duckface'
+```
+
+From source:
+```
+gem 'duckface-interfaces', require: 'duckface', git: 'git@github.com:samuelgiles/duckface.git'
+```
+
 ## Configure
 
 ### RSpec
