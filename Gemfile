@@ -13,6 +13,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'reek'
   gem 'rspec'
+  gem 'rspec_junit_formatter'
   gem 'rubocop'
   gem 'rubocop-rspec'
 end
