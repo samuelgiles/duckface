@@ -1,6 +1,6 @@
 ![duckface](https://user-images.githubusercontent.com/2643026/40590182-811ac3bc-61f2-11e8-814a-b235c51fd52c.jpg)
 
-# Duckface
+# Duckface [![CircleCI](https://circleci.com/gh/samuelgiles/duckface.svg?style=svg)](https://circleci.com/gh/samuelgiles/duckface)
 
 A collection of tools to enforce duck typing based interfaces in Ruby.
 
