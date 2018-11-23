@@ -18,7 +18,7 @@ module Duckface
     implements_interface RSpecExampleInterface
 
     def method(an_argument)
-      puts 'I am a method'
+      'Hello world'
     end
   end
 

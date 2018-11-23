@@ -60,7 +60,7 @@ module Duckface
       context 'when the class does not implement any interfaces' do
         let(:implementation_class) { ExampleThatDoesNotImplementInterface }
 
-        it { is_expected.to be false }
+        it { is_expected.to be_an_instance_of(NullCheckSession) }
       end
 
       context 'when the class does implement the given interface' do

@@ -2,12 +2,13 @@
 
 require 'duckface/services/check_class_implements_interface'
 require 'duckface/implementation_methods'
+require 'duckface/null_check_session'
 
 module Duckface
   # Provides methods on any class to indicate usage of interfaces
   module ObjectSugar
     def check_it_implements(_interface_class)
-      false
+      NullCheckSession.new
     end
 
     def says_it_implements?(_interface_class)

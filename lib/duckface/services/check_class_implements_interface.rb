@@ -1,14 +1,17 @@
 # frozen_string_literal: true
 
-require 'duckface/errors'
 require 'duckface/method_implementation'
+require 'duckface/check_session'
 
 module Duckface
   module Services
     class CheckClassImplementsInterface
+      extend Forwardable
+
       def initialize(implementation_class, interface_class)
         @implementation_class = implementation_class
         @interface_class = interface_class
+        @check_session = CheckSession.new
       end
 
       def perform
@@ -16,20 +19,25 @@ module Duckface
           check_method_is_implemented(method_name)
           check_method_has_correct_signature(method_name)
         end
-        true
+        @check_session
       end
 
       private
 
       def check_method_is_implemented(method_name)
         return if method_implemented?(method_name)
-        raise Errors::InterfaceMethodNotImplementedError, "##{method_name} is not implemented"
+
+        notice_not_implemented_method(method_name)
       end
+
+      def_delegators :@check_session,
+                     :notice_not_implemented_method,
+                     :notice_method_with_incorrect_signature
 
       def check_method_has_correct_signature(method_name)
         return if method_has_correct_signature?(method_name)
-        raise Errors::ImplementationSignatureIncorrectError,
-              "##{method_name} does not have the correct signature"
+
+        notice_method_with_incorrect_signature(method_name)
       end
 
       def methods_that_should_be_implemented
