@@ -36,21 +36,21 @@ module Duckface
       let(:interface_class) { BestExampleInterface }
 
       describe '#perform' do
-        subject(:perform) { service.perform }
+        subject(:result) { service.perform }
 
         context 'when the implementation is correct' do
-          it { is_expected.to be true }
+          specify do
+            expect(result.successful?).to be true
+          end
         end
 
         context 'when the implementation has a missing method' do
           let(:implementation_class) { ExampleImplementationWithMissingMethod }
 
           specify do
-            expect { perform }
-              .to raise_error(
-                Errors::InterfaceMethodNotImplementedError,
-                '#method is not implemented'
-              )
+            expect(result.successful?).to be false
+            expect(result.methods_not_implemented).to contain_exactly(:method)
+            expect(result.methods_with_incorrect_signatures).to be_empty
           end
         end
 
@@ -58,11 +58,9 @@ module Duckface
           let(:implementation_class) { ExampleImplementationWithIncorrectMethodSignature }
 
           specify do
-            expect { perform }
-              .to raise_error(
-                Errors::ImplementationSignatureIncorrectError,
-                '#method does not have the correct signature'
-              )
+            expect(result.successful?).to be false
+            expect(result.methods_not_implemented).to be_empty
+            expect(result.methods_with_incorrect_signatures).to contain_exactly(:method)
           end
         end
       end

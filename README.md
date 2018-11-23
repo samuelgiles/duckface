@@ -75,3 +75,14 @@ describe MyImplementation
   it_behaves_like 'it implements', MyInterface
 end
 ```
+
+If it fails you'll get messages pointing out where you've gone wrong:
+```ruby
+Failures:
+
+  1) MyImplementation behaves like it implements MyInterface correctly  
+     Failure/Error: expect(check_session.successful?).to be(true), formatted_message(check_session)
+
+       expected to correctly implement MyInterface:
+        - say_my_name is not present
+```
