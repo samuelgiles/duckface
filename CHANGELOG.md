@@ -1,3 +1,7 @@
+0.0.4
+
+  * Add support for checking Dry::Struct's against an interface
+
 0.0.3
 
   * `Class.check_it_implements` now returns a `CheckSession`.
