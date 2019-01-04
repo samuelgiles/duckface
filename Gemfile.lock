@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    duckface-interfaces (0.0.2)
+    duckface-interfaces (0.0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -32,7 +32,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     equalizer (0.0.11)
     eventmachine (1.2.3)
-    ffi (1.9.18)
+    ffi (1.9.25)
     formatador (0.2.5)
     guard (2.14.1)
       formatador (>= 0.2.4)
@@ -166,4 +166,4 @@ DEPENDENCIES
   spring-watcher-listen
 
 BUNDLED WITH
-   1.16.4
+   1.16.5

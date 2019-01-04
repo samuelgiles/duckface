@@ -11,6 +11,14 @@ module Duckface
       end
     end
 
+    class ExampleStruct
+      def self.schema
+        {
+          my_struct_attribute: 'String'
+        }
+      end
+    end
+
     let(:method_implementation) { MethodImplementation.new(ExampleMethodTest, :some_method) }
 
     describe '#parameters_for_comparison' do
@@ -30,12 +38,24 @@ module Duckface
       end
 
       it { is_expected.to eq parameter_pairs_for_comparison }
+
+      context 'with a struct' do
+        let(:method_implementation) { MethodImplementation.new(ExampleStruct, :my_struct_attribute) }
+
+        it { is_expected.to eq [] }
+      end
     end
 
     describe '#owner' do
       subject(:owner) { method_implementation.owner }
 
       it { is_expected.to eq ExampleMethodTest }
+
+      context 'with a struct' do
+        let(:method_implementation) { MethodImplementation.new(ExampleStruct, :my_struct_attribute) }
+
+        it { is_expected.to eq ExampleStruct }
+      end
     end
   end
 end
