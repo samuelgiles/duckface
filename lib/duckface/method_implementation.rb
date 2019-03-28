@@ -34,7 +34,15 @@ module Duckface
 
     def present_in_schema?
       return false unless schema?
-      @klass.schema.keys.include?(@method_name)
+
+      schema_keys = @klass.schema.keys
+      if schema_keys.first.is_a?(Symbol)
+        @klass.schema.keys.include?(@method_name)
+      elsif schema_keys.first.respond_to?(:name)
+        @klass.schema.keys.map(&:name).include?(@method_name)
+      else
+        raise "Can't determine schema methods. `Class.schema.keys` returns array of unknown types."
+      end
     end
 
     def schema?
