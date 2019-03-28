@@ -1,3 +1,7 @@
+0.0.5
+
+  * Add support for dry-struct >= 0.6.0
+
 0.0.4
 
   * Add support for checking Dry::Struct's against an interface

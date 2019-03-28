@@ -2,6 +2,7 @@
 
 require 'duckface/method_implementation'
 require 'duckface/check_session'
+require 'forwardable'
 
 module Duckface
   module Services

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    duckface-interfaces (0.0.4)
+    duckface-interfaces (0.0.5)
 
 GEM
   remote: https://rubygems.org/
@@ -166,4 +166,4 @@ DEPENDENCIES
   spring-watcher-listen
 
 BUNDLED WITH
-   1.16.5
+   1.17.1

@@ -19,6 +19,17 @@ module Duckface
       end
     end
 
+    class ExampleDryStruct
+      NamedAttributeStruct = Struct.new(:name)
+
+      def self.schema
+        named_attribute = NamedAttributeStruct.new(:my_dry_struct_attribute)
+        {
+          named_attribute => 'String'
+        }
+      end
+    end
+
     let(:method_implementation) { MethodImplementation.new(ExampleMethodTest, :some_method) }
 
     describe '#parameters_for_comparison' do
@@ -44,6 +55,14 @@ module Duckface
 
         it { is_expected.to eq [] }
       end
+
+      context 'with a dry struct' do
+        let(:method_implementation) do
+          MethodImplementation.new(ExampleDryStruct, :my_dry_struct_attribute)
+        end
+
+        it { is_expected.to eq [] }
+      end
     end
 
     describe '#owner' do
@@ -55,6 +74,14 @@ module Duckface
         let(:method_implementation) { MethodImplementation.new(ExampleStruct, :my_struct_attribute) }
 
         it { is_expected.to eq ExampleStruct }
+      end
+
+      context 'with a dry struct' do
+        let(:method_implementation) do
+          MethodImplementation.new(ExampleDryStruct, :my_dry_struct_attribute)
+        end
+
+        it { is_expected.to eq ExampleDryStruct }
       end
     end
   end
