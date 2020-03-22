@@ -16,3 +16,5 @@ spec/dummy/tmp/
 spec/dummy/public/system/
 
 tags*
+
+Gemfile.lock
