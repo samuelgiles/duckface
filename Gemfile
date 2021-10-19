@@ -11,19 +11,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rb-fsevent', require: false
   gem 'rb-readline'
-  gem 'reek'
   gem 'rspec'
-  gem 'rspec_junit_formatter'
   gem 'rubocop'
   gem 'rubocop-rspec'
-end
-
-group :development do
-  gem 'spring'
-  gem 'spring-watcher-listen'
+  gem 'tapioca'
 end
 
 group :test do
   gem 'simplecov'
-  gem 'spring-commands-rspec'
 end
